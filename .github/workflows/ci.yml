@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Unit tests
+        run: python -m unittest discover -s tests -t . -v
+      - name: End-to-end run on sample data
+        run: |
+          python -m pipeline.cli sample --out data/sample
+          python -m pipeline.cli run --input data/sample --db out/warehouse.db --run-date 2026-10-01
