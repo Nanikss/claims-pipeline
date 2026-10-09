@@ -1,6 +1,6 @@
 # Claims Pipeline
 
-[![CI](https://github.com/kumarnenavath5815-cpu/claims-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/kumarnenavath5815-cpu/claims-pipeline/actions/workflows/ci.yml)
+[![CI](https://github.com/Nanikss/claims-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/Nanikss/claims-pipeline/actions/workflows/ci.yml)
 
 A small batch data pipeline for insurance policy and claims data: **ingest → validate/quarantine → transform (SQL marts) → data quality checks → publish or roll back**. It follows the same ETL pattern I've worked with on AWS (S3 → Glue → Redshift), scaled down to run anywhere with only the Python standard library and SQLite.
 
